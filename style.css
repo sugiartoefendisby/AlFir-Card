@@ -282,25 +282,26 @@ body {
   margin-bottom: 3rem;
 }
 
-#contactForm .form-label {
-  color: #555; /* Warna label form */
+/* Menghapus gaya yang tidak lagi diperlukan untuk formulir komentar */
+/* #contactForm .form-label {
+    color: #555;
 }
 
 #contactForm .form-control {
-  border-radius: 0.3rem;
-  border: 1px solid #ddd;
+    border-radius: 0.3rem;
+    border: 1px solid #ddd;
 }
 
 #contactForm .btn-dark {
-  background-color: #6a5acd; /* Warna tombol kirim sesuai tema */
-  border-color: #6a5acd;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: #6A5ACD;
+    border-color: #6A5ACD;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 #contactForm .btn-dark:hover {
-  background-color: #5340a6; /* Warna hover tombol */
-  border-color: #5340a6;
-}
+    background-color: #5340a6;
+    border-color: #5340a6;
+} */
 
 .whatsapp-btn {
   background-color: #25d366; /* Warna hijau WhatsApp */
