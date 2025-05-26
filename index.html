@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlFir Card</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="floating-nav">
+      <a
+        href="#heroCarousel"
+        class="btn btn-dark floating-nav-btn shadow-lg animate__animated animate__fadeInUp animate__delay-1s"
+      >
+        <i class="fas fa-home me-2"></i> Beranda
+      </a>
+      <a
+        href="#galeri-undangan"
+        class="btn btn-dark floating-nav-btn shadow-lg animate__animated animate__fadeInUp animate__delay-2s"
+      >
+        <i class="fas fa-images me-2"></i> Galeri
+      </a>
+      <a
+        href="#kontak"
+        class="btn btn-dark floating-nav-btn shadow-lg animate__animated animate__fadeInUp animate__delay-3s"
+      >
+        <i class="fas fa-phone me-2"></i> Kontak Kami
+      </a>
+    </div>
+
+    <div
+      class="hero-section vh-100 d-flex justify-content-center align-items-center text-center text-white"
+    >
+      <div id="heroCarousel" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="galeri/tipe 1_all.png"
+              class="d-block w-100 hero-img"
+              alt="Undangan Pernikahan Klasik 1"
+              onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="galeri/tipe 2_all.png"
+              class="d-block w-100 hero-img"
+              alt="Undangan pernikahan Klasik 2"
+              onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="galeri/tipe 3_all.png"
+              class="d-block w-100 hero-img"
+              alt="Undangan Pernikahan Klasik 3"
+              onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="overlay"></div>
+      <div class="container position-relative z-2">
+        <h1 class="display-3 mb-4 animate__animated animate__fadeInDown">
+          Abadikan Momen Berharga
+        </h1>
+        <p class="lead mb-5 animate__animated animate__fadeInUp">
+          CETAK UNDANGAN PERNIKAHAN ANDA YANG TAK TERLUPAKAN
+        </p>
+        <a
+          href="#galeri-undangan"
+          class="btn btn-outline-light btn-lg animate__animated animate__zoomIn"
+          >Lihat Undangan Kami</a
+        >
+      </div>
+    </div>
+
+    <section id="galeri-undangan" class="py-5 bg-light-subtle">
+      <div class="container">
+        <h2
+          class="text-center display-4 mb-5 gallery-title animate__animated animate__fadeIn"
+        >
+          Galeri Kami
+        </h2>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInLeft"
+        >
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 1_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan Pernikahan Elegan"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 text-md-start text-center">
+            <h3 class="gallery-item-title">Keanggunan Abadi</h3>
+            <p class="lead">
+              Undangan pernikahan dengan sentuhan emas dan ornamen vintage.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Bahan Kertas Premium
+                (250gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Cetak Full Color Dua
+                Sisi
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Finishing Hot Foil Emas
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Amplop Berdesain Khusus
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInRight"
+        >
+          <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 2_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan pernikahan Modern"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 order-md-1 text-md-end text-center">
+            <h3 class="gallery-item-title">Sentuhan Tradisi</h3>
+            <p class="lead">
+              Undangan pernikahan dengan motif batik klasik dan warna lembut.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Jasmine Putih
+                (200gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Desain Custom Sesuai
+                Tema
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Bonus Stiker Label Nama
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Pilihan Font Kaligrafi
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInLeft"
+        >
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 3_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan Pernikahan Rustic"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 text-md-start text-center">
+            <h3 class="gallery-item-title">Pesona Pedesaan</h3>
+            <p class="lead">
+              Undangan pernikahan gaya rustic dengan aksen kayu dan tali rami.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Kraft Daur Ulang
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Cetak Inkjet Presisi
+                Tinggi
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Hiasan Tali Rami Alami
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Desain Minimalis &
+                Hangat
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInRight"
+        >
+          <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 4_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan pernikahan Modern"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 order-md-1 text-md-end text-center">
+            <h3 class="gallery-item-title">Nuansa Islami</h3>
+            <p class="lead">
+              Undangan pernikahan dengan ornamen kaligrafi dan warna syahdu.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Linen Putih
+                (220gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Desain Custom Kaligrafi
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Amplop Berdesain Islami
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Pilihan Font Arab
+                Modern
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInLeft"
+        >
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 5_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan Pernikahan Rustic"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 text-md-start text-center">
+            <h3 class="gallery-item-title">Sentuhan Klasik Modern</h3>
+            <p class="lead">
+              Undangan pernikahan dengan perpaduan elemen klasik dan desain
+              minimalis.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Art Carton Doff
+                (260gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Cetak Digital
+                Berkualitas Tinggi
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Desain Minimalis Elegan
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Pilihan Warna Pastel
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInRight"
+        >
+          <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 6_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan pernikahan Modern"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 order-md-1 text-md-end text-center">
+            <h3 class="gallery-item-title">Keceriaan Anak</h3>
+            <p class="lead">
+              Undangan pernikahan dengan ilustrasi ceria dan warna-warni.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Ivory (230gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Ilustrasi Custom
+                Karakter
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Amplop Berwarna Cerah
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Desain Tema Kartun
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInLeft"
+        >
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 7_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan Pernikahan Rustic"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 text-md-start text-center">
+            <h3 class="gallery-item-title">Elegan Minimalis</h3>
+            <p class="lead">
+              Undangan pernikahan dengan desain bersih dan fokus pada tipografi.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Concorde
+                (250gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Cetak Emboss Logo
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Desain Simpel & Mewah
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Pilihan Font Sans-Serif
+                Klasik
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+
+        <div
+          class="row align-items-center mb-5 product-item animate__animated animate__fadeInRight"
+        >
+          <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+            <img
+              src="galeri/tipe 8_all.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Undangan pernikahan Modern"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/333333?text=Gambar+Tidak+Tersedia';"
+            />
+          </div>
+          <div class="col-md-6 order-md-1 text-md-end text-center">
+            <h3 class="gallery-item-title">Etnik Nusantara</h3>
+            <p class="lead">
+              Undangan pernikahan dengan sentuhan motif etnik Indonesia.
+            </p>
+            <ul class="list-unstyled product-specs">
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Kertas Daur Ulang
+                (200gsm)
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Motif Batik/Tenun
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Bonus Souvenir Mini
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2"></i> Pilihan Warna Alam
+              </li>
+            </ul>
+            <a href="#kontak" class="btn btn-dark mt-3">Detail Produk</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="py-5 bg-dark-subtle text-white">
+      <div class="container">
+        <h2
+          class="text-center display-4 mb-5 contact-title animate__animated animate__fadeIn"
+        >
+          Hubungi Kami
+        </h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <p class="text-center lead mb-4">
+              Punya pertanyaan atau ingin mendiskusikan desain undangan impian
+              Anda? Jangan ragu untuk menghubungi kami!
+            </p>
+
+            <div class="card bg-white text-dark p-4 shadow-sm rounded-3 mb-5">
+              <h4 class="card-title text-center mb-4 gallery-item-title">
+                Kirim Komentar Anda
+              </h4>
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label for="namaLengkap" class="form-label"
+                    >Nama Lengkap</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="namaLengkap"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="pesan" class="form-label">Pesan Anda</label>
+                  <textarea
+                    class="form-control"
+                    id="pesan"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark w-100">
+                  Kirim Pesan
+                </button>
+              </form>
+              <div
+                id="formMessage"
+                class="mt-3 text-center"
+                style="display: none"
+              ></div>
+            </div>
+
+            <div class="text-center">
+              <h4 class="mb-3 gallery-item-title">Atau Hubungi Via WhatsApp</h4>
+              <a
+                href="https://wa.me/6281259441949?text=Halo%2C%20saya%20tertarik%20dengan%20undangan%20klasik%20Anda.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%3F"
+                class="btn btn-success btn-lg whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp me-2"></i> Chat Via WhatsApp
+              </a>
+              <p class="mt-3 fw-bold text-dark">
+                Nomor WhatsApp: +62 812-5944-1949 / +62 822-3117-3379
+              </p>
+            </div>
+
+            <div class="mt-5">
+              <h4 class="text-center mb-4 gallery-item-title">
+                Ulasan Pelanggan
+              </h4>
+              <div id="customerComments" class="list-group">
+                <p class="text-center text-muted" id="loadingComments">
+                  Memuat ulasan...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white-50 py-4 text-center">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 AlFir Card. Hak Cipta Dilindungi.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import {
+        getAuth,
+        signInAnonymously,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        onSnapshot,
+        query,
+        orderBy,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      // Global variables for Firebase config and app ID
+      const appId =
+        typeof __app_id !== "undefined" ? __app_id : "default-app-id";
+      const firebaseConfig =
+        typeof __firebase_config !== "undefined"
+          ? JSON.parse(__firebase_config)
+          : {};
+
+      let app, db, auth, userId;
+      let isAuthReady = false;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Firebase
+        if (Object.keys(firebaseConfig).length > 0) {
+          app = initializeApp(firebaseConfig);
+          auth = getAuth(app);
+          db = getFirestore(app);
+
+          // Listen for auth state changes
+          onAuthStateChanged(auth, async (user) => {
+            if (user) {
+              userId = user.uid;
+              console.log("Authenticated with Firebase. User ID:", userId);
+              isAuthReady = true;
+              loadComments(); // Load comments once authenticated
+            } else {
+              // Sign in anonymously if not authenticated
+              try {
+                const anonymousUser = await signInAnonymously(auth);
+                userId = anonymousUser.user.uid;
+                console.log("Signed in anonymously. User ID:", userId);
+                isAuthReady = true;
+                loadComments(); // Load comments once authenticated
+              } catch (error) {
+                console.error("Error signing in anonymously:", error);
+                document.getElementById("loadingComments").innerText =
+                  "Gagal memuat ulasan. Silakan coba lagi nanti.";
+              }
+            }
+          });
+        } else {
+          console.error(
+            "Firebase config is not available. Cannot initialize Firebase."
+          );
+          document.getElementById("loadingComments").innerText =
+            "Aplikasi tidak dapat terhubung ke database. Silakan hubungi administrator.";
+        }
+
+        // JavaScript untuk inisialisasi Carousel secara manual
+        const heroCarouselElement = document.getElementById("heroCarousel");
+        if (heroCarouselElement) {
+          // Menggunakan window.bootstrap secara eksplisit untuk memastikan objek tersedia
+          if (
+            typeof window.bootstrap !== "undefined" &&
+            window.bootstrap.Carousel
+          ) {
+            new window.bootstrap.Carousel(heroCarouselElement, {
+              interval: 5000, // Atur interval slide (misalnya 5 detik)
+              ride: "carousel", // Tetap aktifkan auto-play
+            });
+          } else {
+            console.error(
+              "window.bootstrap is not defined. Carousel cannot be initialized."
+            );
+            // Opsional: Coba inisialisasi setelah penundaan singkat jika bootstrap belum tersedia
+            // setTimeout(() => {
+            //     if (typeof window.bootstrap !== 'undefined' && window.bootstrap.Carousel) {
+            //         new window.bootstrap.Carousel(heroCarouselElement, { interval: 5000, ride: 'carousel' });
+            //     }
+            // }, 100);
+          }
+        }
+
+        // JavaScript untuk efek goyang pada tombol navigasi
+        const navButtons = document.querySelectorAll(".floating-nav-btn");
+        navButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            this.classList.remove("wobble-effect");
+            this.classList.add("wobble-effect");
+            setTimeout(() => {
+              this.classList.remove("wobble-effect");
+            }, 500);
+          });
+        });
+      });
+
+      // Function to load comments from Firestore
+      function loadComments() {
+        if (!isAuthReady || !db) {
+          console.log("Firestore not ready or not initialized.");
+          return;
+        }
+
+        const commentsCollectionRef = collection(
+          db,
+          `artifacts/${appId}/public/data/comments`
+        );
+        // Order by timestamp in descending order to show newest comments first
+        const q = query(commentsCollectionRef, orderBy("timestamp", "desc"));
+
+        onSnapshot(
+          q,
+          (snapshot) => {
+            const commentsContainer =
+              document.getElementById("customerComments");
+            commentsContainer.innerHTML = ""; // Clear existing comments
+
+            if (snapshot.empty) {
+              commentsContainer.innerHTML =
+                '<p class="text-center text-muted">Belum ada ulasan. Jadilah yang pertama!</p>';
+              return;
+            }
+
+            snapshot.forEach((doc) => {
+              const comment = doc.data();
+              const commentElement = document.createElement("div");
+              commentElement.classList.add(
+                "list-group-item",
+                "list-group-item-action",
+                "flex-column",
+                "align-items-start",
+                "mb-3",
+                "rounded-3",
+                "shadow-sm"
+              );
+              commentElement.innerHTML = `
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1 comment-author">${
+                              comment.name || "Anonim"
+                            }</h5>
+                            <small class="text-muted">${
+                              comment.timestamp
+                                ? new Date(
+                                    comment.timestamp.toDate()
+                                  ).toLocaleString()
+                                : ""
+                            }</small>
+                        </div>
+                        <p class="mb-1 comment-text">${comment.message}</p>
+                        <small class="text-muted">Email: ${
+                          comment.email || "Tidak Tersedia"
+                        }</small>
+                    `;
+              commentsContainer.appendChild(commentElement);
+            });
+          },
+          (error) => {
+            console.error("Error fetching comments:", error);
+            document.getElementById("customerComments").innerHTML =
+              '<p class="text-center text-danger">Gagal memuat ulasan. Silakan coba lagi nanti.</p>';
+          }
+        );
+      }
+
+      // JavaScript untuk menangani submit form komentar
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Mencegah submit form default
+
+          const formMessage = document.getElementById("formMessage");
+          formMessage.style.display = "block";
+          formMessage.classList.remove("text-danger", "text-success");
+          formMessage.innerHTML = "Mengirim pesan...";
+
+          if (!isAuthReady || !db) {
+            formMessage.classList.add("text-danger");
+            formMessage.innerHTML = "Database tidak siap. Silakan coba lagi.";
+            return;
+          }
+
+          const nama = document.getElementById("namaLengkap").value;
+          const email = document.getElementById("email").value;
+          const pesan = document.getElementById("pesan").value;
+
+          if (!nama || !email || !pesan) {
+            formMessage.classList.add("text-danger");
+            formMessage.innerHTML = "Mohon lengkapi semua kolom form.";
+            return;
+          }
+
+          try {
+            const commentsCollectionRef = collection(
+              db,
+              `artifacts/${appId}/public/data/comments`
+            );
+            await addDoc(commentsCollectionRef, {
+              name: nama,
+              email: email,
+              message: pesan,
+              timestamp: serverTimestamp(), // Firestore timestamp
+              userId: userId, // Store the user ID who submitted the comment
+            });
+
+            formMessage.classList.add("text-success");
+            formMessage.innerHTML =
+              "Terima kasih, pesan Anda telah terkirim! Kami akan segera menghubungi Anda.";
+            document.getElementById("contactForm").reset(); // Reset form
+            console.log("Form Submitted and saved to Firestore!");
+          } catch (error) {
+            console.error("Error saving comment to Firestore:", error);
+            formMessage.classList.add("text-danger");
+            formMessage.innerHTML =
+              "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.";
+          }
+        });
+    </script>
+  </body>
+</html>

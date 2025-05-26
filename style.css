@@ -1,0 +1,325 @@
+/* style.css */
+
+/* Custom CSS untuk tema klasik */
+
+body {
+  font-family: "Lora", serif; /* Font dasar untuk body, memberikan kesan klasik */
+  color: #333; /* Warna teks gelap */
+  background-color: #f8f4e3; /* Warna latar belakang lembut, seperti kertas tua */
+  margin: 0; /* Pastikan tidak ada margin default */
+  padding: 0; /* Pastikan tidak ada padding default */
+  overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+/* Floating Navigation Buttons Styles */
+.floating-nav {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row; /* Tombol akan berjajar horizontal */
+  gap: 10px; /* Jarak antar tombol */
+  z-index: 1050; /* Di atas semua konten lain */
+  /* Untuk memastikan posisi di kanan bawah pada desktop */
+  justify-content: flex-end;
+  width: auto; /* Sesuaikan lebar dengan konten */
+}
+
+.floating-nav-btn {
+  background-color: #281b80; /* Warna ungu lembut */
+  border-color: #6a5acd;
+  color: #fff;
+  padding: 8px 15px; /* Padding lebih kecil */
+  border-radius: 0.5rem; /* Sudut tombol yang membulat */
+  font-size: 0.9rem; /* Ukuran font lebih kecil */
+  text-decoration: none; /* Hapus underline pada link */
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+  align-items: center; /* Pusatkan ikon dan teks secara vertikal */
+  justify-content: center; /* Pusatkan ikon dan teks secara horizontal */
+  min-width: unset; /* Hapus lebar minimum */
+}
+
+.floating-nav-btn:hover {
+  background-color: #5340a6; /* Warna ungu lebih gelap saat hover */
+  border-color: #5340a6;
+  transform: translateY(-3px); /* Efek angkat sedikit saat hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+}
+
+.floating-nav-btn i {
+  font-size: 1rem; /* Ukuran ikon lebih kecil */
+  margin-right: 5px; /* Jarak antara ikon dan teks */
+}
+
+/* Keyframes untuk efek goyang */
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-5%);
+  }
+  30% {
+    transform: translateX(3%);
+  }
+  45% {
+    transform: translateX(-3%);
+  }
+  60% {
+    transform: translateX(2%);
+  }
+  75% {
+    transform: translateX(-1%);
+  }
+}
+
+.wobble-effect {
+  animation: wobble 0.5s ease-in-out; /* Durasi animasi 0.5 detik */
+}
+
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Styling untuk Carousel */
+#heroCarousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Memastikan carousel berada di lapisan paling bawah */
+}
+
+.hero-img {
+  height: 100vh; /* Membuat gambar mengisi seluruh tinggi viewport */
+  object-fit: contain; /* Memastikan gambar menutupi area tanpa distorsi */
+  filter: brightness(0.4); /* Sedikit meredupkan gambar agar teks lebih jelas */
+  opacity: 0.8; /* Sedikit transparansi untuk efek klasik */
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Overlay gelap untuk membuat teks lebih mudah dibaca */
+  z-index: 1; /* Memastikan overlay berada di atas carousel */
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2; /* Memastikan konten teks (judul, paragraf, tombol) berada di atas overlay */
+}
+
+.hero-section h1 {
+  font-family: "Playfair Display", serif; /* Font untuk judul utama, sangat klasik dan elegan */
+  font-weight: 700; /* Tebal untuk penekanan */
+  color: #fff; /* Warna teks putih */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bayangan teks untuk keterbacaan */
+}
+
+.hero-section p {
+  font-size: 1.25rem; /* Ukuran font paragraf */
+  color: #fff; /* Warna teks putih */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan teks */
+}
+
+.hero-section .btn-outline-light {
+  border-width: 2px; /* Ketebalan border tombol */
+  padding: 10px 30px; /* Padding tombol */
+  font-size: 1.1rem; /* Ukuran font tombol */
+  transition: all 0.3s ease; /* Transisi halus saat hover */
+  border-radius: 0.5rem; /* Sudut tombol yang sedikit membulat */
+}
+
+.hero-section .btn-outline-light:hover {
+  background-color: #fff; /* Latar belakang putih saat hover */
+  color: #6a5acd; /* Warna ungu lembut saat hover, kontras dengan tema */
+}
+
+/* Responsif untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem; /* Ukuran font judul yang lebih kecil di mobile */
+  }
+  .hero-section p {
+    font-size: 1rem; /* Ukuran font paragraf yang lebih kecil di mobile */
+  }
+  .hero-section .btn-lg {
+    padding: 8px 20px; /* Padding tombol yang lebih kecil di mobile */
+    font-size: 1rem; /* Ukuran font tombol yang lebih kecil di mobile */
+  }
+  .floating-nav {
+    flex-direction: row; /* Tetap horizontal */
+    bottom: 10px;
+    right: 10px;
+    left: 10px; /* Agar rata kiri-kanan */
+    justify-content: space-around; /* Distribusi ruang antar tombol */
+    gap: 5px;
+  }
+  .floating-nav-btn {
+    flex: 1; /* Agar tombol mengisi ruang yang tersedia */
+    padding: 8px 5px; /* Padding lebih kecil lagi untuk mobile */
+    font-size: 0.8rem; /* Font lebih kecil lagi untuk mobile */
+    min-width: unset; /* Hapus min-width */
+  }
+  .floating-nav-btn i {
+    margin-right: 0; /* Hapus margin kanan ikon pada mobile */
+    display: block; /* Ikon di atas teks */
+    margin-bottom: 3px; /* Jarak ikon dan teks di mobile */
+  }
+  .floating-nav-btn span {
+    display: block; /* Teks di bawah ikon */
+  }
+}
+
+/* Gallery Section Styles */
+#galeri-undangan {
+  padding-top: 80px; /* Padding atas untuk section galeri */
+  padding-bottom: 80px; /* Padding bawah untuk section galeri */
+  background-color: #f8f4e3; /* Warna latar belakang lembut */
+}
+
+.gallery-title {
+  font-family: "Playfair Display", serif; /* Font klasik untuk judul galeri */
+  font-weight: 700;
+  color: #6a5acd; /* Warna ungu lembut untuk judul */
+  margin-bottom: 3rem;
+}
+
+.product-item {
+  margin-bottom: 4rem; /* Jarak antar item produk */
+  background-color: hsla(0, 16%, 73%, 0.411);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-item:hover {
+  transform: translateY(-5px); /* Efek angkat sedikit saat hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+}
+
+.product-item img {
+  border-radius: 0.5rem; /* Sudut gambar yang membulat */
+  border: 1px solid #eee; /* Border tipis pada gambar */
+}
+
+.gallery-item-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #6a5acd;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.product-specs {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.product-specs li {
+  margin-bottom: 0.5rem;
+}
+
+.product-specs i {
+  color: #6a5acd; /* Warna ikon sesuai tema */
+}
+
+/* Responsif untuk gambar berselingan */
+@media (min-width: 768px) {
+  /* Default: Gambar Kiri (col-md-6 pertama), Teks Kanan (col-md-6 kedua) */
+  .product-item:nth-child(even) .col-md-6:first-child {
+    order: 2; /* Pada baris genap, pindahkan gambar ke kanan */
+  }
+  .product-item:nth-child(even) .col-md-6:last-child {
+    order: 1; /* Pada baris genap, pindahkan deskripsi ke kiri */
+    text-align: end; /* Teks rata kanan untuk baris genap */
+  }
+  /* Untuk baris ganjil, pastikan teks rata kiri */
+  .product-item:nth-child(odd) .col-md-6:last-child {
+    text-align: start;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .product-item .col-md-6 {
+    order: unset !important; /* Reset order pada mobile */
+    text-align: center !important; /* Pastikan teks rata tengah pada mobile */
+  }
+}
+
+/* Contact Section Styles */
+#kontak {
+  background-color: #333; /* Warna latar belakang gelap untuk section kontak */
+  color: #fff; /* Warna teks putih */
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.contact-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #fff; /* Judul kontak berwarna putih */
+  margin-bottom: 3rem;
+}
+
+#contactForm .form-label {
+  color: #555; /* Warna label form */
+}
+
+#contactForm .form-control {
+  border-radius: 0.3rem;
+  border: 1px solid #ddd;
+}
+
+#contactForm .btn-dark {
+  background-color: #6a5acd; /* Warna tombol kirim sesuai tema */
+  border-color: #6a5acd;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#contactForm .btn-dark:hover {
+  background-color: #5340a6; /* Warna hover tombol */
+  border-color: #5340a6;
+}
+
+.whatsapp-btn {
+  background-color: #25d366; /* Warna hijau WhatsApp */
+  border-color: #25d366;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1da851; /* Warna hover WhatsApp */
+  border-color: #1da851;
+}
+
+.whatsapp-btn i {
+  font-size: 1.5rem; /* Ukuran ikon WhatsApp */
+}
+
+footer {
+  background-color: #222; /* Warna latar belakang footer */
+  color: rgba(255, 255, 255, 0.911);
+  font-size: 0.9rem;
+}
