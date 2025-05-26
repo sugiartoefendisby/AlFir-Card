@@ -423,7 +423,7 @@
 
             <div class="card bg-white text-dark p-4 shadow-sm rounded-3 mb-5">
               <h4 class="card-title text-center mb-4 gallery-item-title">
-                Kirim Komentar Anda
+                Kirim Pesan Anda
               </h4>
               <form id="contactForm">
                 <div class="mb-3">
@@ -434,6 +434,7 @@
                     type="text"
                     class="form-control"
                     id="namaLengkap"
+                    name="NamaLengkap"
                     required
                   />
                 </div>
@@ -443,6 +444,7 @@
                     type="email"
                     class="form-control"
                     id="email"
+                    name="EmailPengirim"
                     required
                   />
                 </div>
@@ -451,6 +453,7 @@
                   <textarea
                     class="form-control"
                     id="pesan"
+                    name="Pesan"
                     rows="5"
                     required
                   ></textarea>
@@ -485,8 +488,9 @@
                 Ulasan Pelanggan
               </h4>
               <div id="customerComments" class="list-group">
-                <p class="text-center text-muted" id="loadingComments">
-                  Memuat ulasan...
+                <p class="text-center text-muted">
+                  Komentar pelanggan dikumpulkan melalui formulir terpisah dan
+                  dapat dilihat di Google Sheet Anda.
                 </p>
               </div>
             </div>
@@ -502,93 +506,27 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-      import {
-        getAuth,
-        signInAnonymously,
-        onAuthStateChanged,
-      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-      import {
-        getFirestore,
-        collection,
-        addDoc,
-        onSnapshot,
-        query,
-        orderBy,
-        serverTimestamp,
-      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-      // Global variables for Firebase config and app ID
-      const appId =
-        typeof __app_id !== "undefined" ? __app_id : "default-app-id";
-      const firebaseConfig =
-        typeof __firebase_config !== "undefined"
-          ? JSON.parse(__firebase_config)
-          : {};
-
-      let app, db, auth, userId;
-      let isAuthReady = false;
+    <script>
+      // *** PENTING: GANTI DENGAN URL WEB APP GOOGLE APPS SCRIPT ANDA ***
+      const GOOGLE_APP_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbwenK2OSLgLoBKXBxjGy6_XTf8oFauXVnTs6H8USmVrEWuhTMQNirXlK34GIveJr54-XA/execE"; // Contoh: https://script.google.com/macros/s/AKfyc.../exec
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Initialize Firebase
-        if (Object.keys(firebaseConfig).length > 0) {
-          app = initializeApp(firebaseConfig);
-          auth = getAuth(app);
-          db = getFirestore(app);
-
-          // Listen for auth state changes
-          onAuthStateChanged(auth, async (user) => {
-            if (user) {
-              userId = user.uid;
-              console.log("Authenticated with Firebase. User ID:", userId);
-              isAuthReady = true;
-              loadComments(); // Load comments once authenticated
-            } else {
-              // Sign in anonymously if not authenticated
-              try {
-                const anonymousUser = await signInAnonymously(auth);
-                userId = anonymousUser.user.uid;
-                console.log("Signed in anonymously. User ID:", userId);
-                isAuthReady = true;
-                loadComments(); // Load comments once authenticated
-              } catch (error) {
-                console.error("Error signing in anonymously:", error);
-                document.getElementById("loadingComments").innerText =
-                  "Gagal memuat ulasan. Silakan coba lagi nanti.";
-              }
-            }
-          });
-        } else {
-          console.error(
-            "Firebase config is not available. Cannot initialize Firebase."
-          );
-          document.getElementById("loadingComments").innerText =
-            "Aplikasi tidak dapat terhubung ke database. Silakan hubungi administrator.";
-        }
-
         // JavaScript untuk inisialisasi Carousel secara manual
         const heroCarouselElement = document.getElementById("heroCarousel");
         if (heroCarouselElement) {
-          // Menggunakan window.bootstrap secara eksplisit untuk memastikan objek tersedia
           if (
             typeof window.bootstrap !== "undefined" &&
             window.bootstrap.Carousel
           ) {
             new window.bootstrap.Carousel(heroCarouselElement, {
-              interval: 5000, // Atur interval slide (misalnya 5 detik)
-              ride: "carousel", // Tetap aktifkan auto-play
+              interval: 5000,
+              ride: "carousel",
             });
           } else {
             console.error(
               "window.bootstrap is not defined. Carousel cannot be initialized."
             );
-            // Opsional: Coba inisialisasi setelah penundaan singkat jika bootstrap belum tersedia
-            // setTimeout(() => {
-            //     if (typeof window.bootstrap !== 'undefined' && window.bootstrap.Carousel) {
-            //         new window.bootstrap.Carousel(heroCarouselElement, { interval: 5000, ride: 'carousel' });
-            //     }
-            // }, 100);
           }
         }
 
@@ -603,128 +541,89 @@
             }, 500);
           });
         });
-      });
 
-      // Function to load comments from Firestore
-      function loadComments() {
-        if (!isAuthReady || !db) {
-          console.log("Firestore not ready or not initialized.");
-          return;
-        }
+        // JavaScript untuk menangani submit form komentar ke Google Apps Script
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", async function (event) {
+            event.preventDefault(); // Mencegah submit form default
 
-        const commentsCollectionRef = collection(
-          db,
-          `artifacts/${appId}/public/data/comments`
-        );
-        // Order by timestamp in descending order to show newest comments first
-        const q = query(commentsCollectionRef, orderBy("timestamp", "desc"));
+            const formMessage = document.getElementById("formMessage");
+            formMessage.style.display = "block";
+            formMessage.classList.remove("text-danger", "text-success");
+            formMessage.innerHTML = "Mengirim pesan...";
 
-        onSnapshot(
-          q,
-          (snapshot) => {
-            const commentsContainer =
-              document.getElementById("customerComments");
-            commentsContainer.innerHTML = ""; // Clear existing comments
+            const nama = document.getElementById("namaLengkap").value;
+            const email = document.getElementById("email").value;
+            const pesan = document.getElementById("pesan").value;
 
-            if (snapshot.empty) {
-              commentsContainer.innerHTML =
-                '<p class="text-center text-muted">Belum ada ulasan. Jadilah yang pertama!</p>';
+            if (!nama || !email || !pesan) {
+              formMessage.classList.add("text-danger");
+              formMessage.innerHTML = "Mohon lengkapi semua kolom formulir.";
               return;
             }
 
-            snapshot.forEach((doc) => {
-              const comment = doc.data();
-              const commentElement = document.createElement("div");
-              commentElement.classList.add(
-                "list-group-item",
-                "list-group-item-action",
-                "flex-column",
-                "align-items-start",
-                "mb-3",
-                "rounded-3",
-                "shadow-sm"
-              );
-              commentElement.innerHTML = `
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1 comment-author">${
-                              comment.name || "Anonim"
-                            }</h5>
-                            <small class="text-muted">${
-                              comment.timestamp
-                                ? new Date(
-                                    comment.timestamp.toDate()
-                                  ).toLocaleString()
-                                : ""
-                            }</small>
-                        </div>
-                        <p class="mb-1 comment-text">${comment.message}</p>
-                        <small class="text-muted">Email: ${
-                          comment.email || "Tidak Tersedia"
-                        }</small>
-                    `;
-              commentsContainer.appendChild(commentElement);
-            });
-          },
-          (error) => {
-            console.error("Error fetching comments:", error);
-            document.getElementById("customerComments").innerHTML =
-              '<p class="text-center text-danger">Gagal memuat ulasan. Silakan coba lagi nanti.</p>';
-          }
-        );
-      }
+            if (
+              GOOGLE_APP_SCRIPT_URL ===
+                "YOUR_GOOGLE_APP_SCRIPT_WEB_APP_URL_HERE" ||
+              !GOOGLE_APP_SCRIPT_URL.startsWith(
+                "https://script.google.com/macros/"
+              )
+            ) {
+              formMessage.classList.add("text-danger");
+              formMessage.innerHTML =
+                "Kesalahan konfigurasi: URL Google Apps Script belum diatur dengan benar.";
+              console.error("GOOGLE_APP_SCRIPT_URL belum diatur atau salah.");
+              return;
+            }
 
-      // JavaScript untuk menangani submit form komentar
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault(); // Mencegah submit form default
+            // Buat FormData object
+            const formData = new FormData();
+            formData.append("NamaLengkap", nama); // 'NamaLengkap' harus sesuai dengan nama parameter di Apps Script
+            formData.append("EmailPengirim", email); // 'EmailPengirim' harus sesuai dengan nama parameter di Apps Script
+            formData.append("Pesan", pesan); // 'Pesan' harus sesuai dengan nama parameter di Apps Script
 
-          const formMessage = document.getElementById("formMessage");
-          formMessage.style.display = "block";
-          formMessage.classList.remove("text-danger", "text-success");
-          formMessage.innerHTML = "Mengirim pesan...";
+            try {
+              const response = await fetch(GOOGLE_APP_SCRIPT_URL, {
+                method: "POST",
+                body: formData,
+                // mode: 'no-cors' // Tidak perlu mode no-cors jika Apps Script diatur dengan benar
+              });
 
-          if (!isAuthReady || !db) {
-            formMessage.classList.add("text-danger");
-            formMessage.innerHTML = "Database tidak siap. Silakan coba lagi.";
-            return;
-          }
+              // Google Apps Script akan mengembalikan teks, bukan JSON
+              const resultText = await response.text();
+              let result;
+              try {
+                result = JSON.parse(resultText); // Coba parse sebagai JSON
+              } catch (e) {
+                // Jika bukan JSON, anggap sukses jika ada respons
+                result = {
+                  result: response.ok ? "success" : "error",
+                  message: resultText || "Respons tidak terduga.",
+                };
+              }
 
-          const nama = document.getElementById("namaLengkap").value;
-          const email = document.getElementById("email").value;
-          const pesan = document.getElementById("pesan").value;
-
-          if (!nama || !email || !pesan) {
-            formMessage.classList.add("text-danger");
-            formMessage.innerHTML = "Mohon lengkapi semua kolom form.";
-            return;
-          }
-
-          try {
-            const commentsCollectionRef = collection(
-              db,
-              `artifacts/${appId}/public/data/comments`
-            );
-            await addDoc(commentsCollectionRef, {
-              name: nama,
-              email: email,
-              message: pesan,
-              timestamp: serverTimestamp(), // Firestore timestamp
-              userId: userId, // Store the user ID who submitted the comment
-            });
-
-            formMessage.classList.add("text-success");
-            formMessage.innerHTML =
-              "Terima kasih, pesan Anda telah terkirim! Kami akan segera menghubungi Anda.";
-            document.getElementById("contactForm").reset(); // Reset form
-            console.log("Form Submitted and saved to Firestore!");
-          } catch (error) {
-            console.error("Error saving comment to Firestore:", error);
-            formMessage.classList.add("text-danger");
-            formMessage.innerHTML =
-              "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.";
-          }
-        });
+              if (result.result === "success") {
+                formMessage.classList.add("text-success");
+                formMessage.innerHTML =
+                  "Terima kasih, pesan Anda telah terkirim! Kami akan segera menghubungi Anda.";
+                document.getElementById("contactForm").reset(); // Reset form
+                console.log("Form Submitted and saved to Google Sheet!");
+              } else {
+                formMessage.classList.add("text-danger");
+                formMessage.innerHTML = `Terjadi kesalahan: ${
+                  result.error || "Silakan coba lagi."
+                }`;
+                console.error("Error from Apps Script:", result.error);
+              }
+            } catch (error) {
+              console.error("Error submitting form:", error);
+              formMessage.classList.add("text-danger");
+              formMessage.innerHTML =
+                "Terjadi kesalahan saat mengirim pesan. Pastikan URL Apps Script benar dan terkoneksi internet.";
+            }
+          });
+      });
     </script>
   </body>
 </html>
